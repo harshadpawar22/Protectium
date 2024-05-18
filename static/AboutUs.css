@@ -1,0 +1,363 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(/static/BackgroundImage.svg);
+    overflow: hidden;
+}
+
+.parent_container {
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    top: 50%;
+    left: 50%;
+}
+
+.container {
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    animation: spin 6s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loader_lines {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    border: 16px solid white;
+    border-top: 16px solid rgba(13, 40, 70, 255);
+    border-bottom: 16px solid rgba(13, 40, 70, 255);
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: spinlines 2s linear infinite;
+}
+
+@keyframes spinlines {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+.loader span {
+    font: 30px Impact, fantasy;
+    color: white;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 44.4%;
+    top: -1%;
+    transform-origin: bottom center;
+}
+
+.loader .char1 {
+    transform: rotate(0deg);
+}
+
+.loader .char2 {
+    transform: rotate(30deg);
+}
+
+.loader .char3 {
+    transform: rotate(60deg);
+}
+
+.loader .char4 {
+    transform: rotate(90deg);
+}
+
+.loader .char5 {
+    transform: rotate(120deg);
+}
+
+.loader .char6 {
+    transform: rotate(150deg);
+}
+
+.loader .char7 {
+    transform: rotate(180deg);
+}
+
+.loader .char8 {
+    transform: rotate(210deg);
+}
+
+.loader .char9 {
+    transform: rotate(240deg);
+}
+
+.loader .char10 {
+    transform: rotate(270deg);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 65px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 5px 10px 30px rgba(0, 0, 0, 0.02);
+    z-index: 1;
+}
+
+.contaier_webpage {
+    animation: animatepage 2s linear;
+}
+
+@keyframes animatepage {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.navbar_logo img {
+    display: flex;
+    height: 50px;
+    width: 110px;
+    align-items: center;
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    border: 2px solid white;
+}
+
+.navbar_menu {
+    list-style: none;
+    display: flex;
+    width: fit-content;
+    padding-inline-start: 0px;
+    position: absolute;
+    right: 10px;
+    top: -10px;
+}
+
+.navbar_menu li a {
+    display: flex;
+    text-decoration: none;
+    height: 50px;
+    align-items: center;
+    padding: 0px 20px;
+    margin: 2px;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: black;
+    border: 2px solid white;
+}
+
+.ham_container {
+    display: none;
+}
+
+.checkbox {
+    position: absolute;
+    display: block;
+    height: 30px;
+    width: 33.5px;
+    top: 23%;
+    right: 2.5%;
+    z-index: 5;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.hamburger_lines {
+    display: block;
+    height: 26.5px;
+    width: 33.5px;
+    position: absolute;
+    top: 27%;
+    right: 2.7%;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hamburger_lines .line {
+    display: block;
+    height: 4px;
+    width: 100%;
+    border-radius: 10px;
+    background: #0e2431;
+}
+
+.hamburger_lines .line1 {
+    transform-origin: 0% 0%;
+    transition: transform 0.4s ease-in-out;
+}
+
+.hamburger_lines .line2 {
+    transition: transform 0.2s ease-in-out;
+}
+
+.hamburger_lines .line3 {
+    transform-origin: 0% 100%;
+    transition: transform 0.4s ease-in-out;
+}
+
+.ham_container input[type="checkbox"]:checked~.hamburger_lines .line1 {
+    transform: rotate(45deg);
+}
+
+.ham_container input[type="checkbox"]:checked~.hamburger_lines .line2 {
+    transform: scaleY(0);
+}
+
+.ham_container input[type="checkbox"]:checked~.hamburger_lines .line3 {
+    transform: rotate(-45deg);
+}
+
+.ham_container input[type="checkbox"]:checked~.navbar_menu {
+    background: #fff;
+    width: 200px;
+    box-shadow: 10px 10px 54px -6px rgba(0, 0, 0, 0.75);
+    transform: translate(-50%);
+    display: block;
+}
+
+.navbar_menu li a i {
+    margin-right: 5px;
+}
+
+.navbar_menu li a:hover {
+    border: 2px solid black;
+    color: white;
+    background-color: rgba(13, 40, 70, 255);
+    transition: all ease 0.2s;
+}
+
+@media screen and (max-width: 1000px) {
+    .navbar_menu {
+        display: none;
+    }
+
+    .ham_container {
+        display: block;
+    }
+}
+
+.about_boxes {
+    margin-left: 250px;
+}
+
+.about_boxes p {
+    margin-top: 80px;
+    font-size: 15px;
+}
+
+.about_boxes h2 {
+    margin-top: 80px;
+    padding: 10px;
+    text-align: center;
+}
+
+.about_box_front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border: 2px solid black;
+    border-radius: 50px;
+}
+
+.about_box_back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background-color: black;
+    color: white;
+    transform: rotateY(180deg);
+    border: 2px solid white;
+    border-radius: 50px;
+}
+
+.about_box1 {
+    height: 210px;
+    width: 310px;
+    position: absolute;
+    left: 250px;
+    top: 100px;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+}
+
+.about_box1:hover {
+    transform: rotateY(180deg);
+}
+
+.about_box2 {
+    height: 210px;
+    width: 310px;
+    position: absolute;
+    right: 250px;
+    top: 100px;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+}
+
+.about_box2:hover {
+    transform: rotateY(180deg);
+}
+
+.about_box3 {
+    height: 210px;
+    width: 310px;
+    position: absolute;
+    left: 250px;
+    bottom: 20px;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;    
+}
+
+.about_box3:hover {
+    transform: rotateY(180deg);
+}
+
+.about_box4 {
+    height: 210px;
+    width: 310px;
+    position: absolute;
+    right: 250px;
+    bottom: 20px;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+}
+
+.about_box4:hover {
+    transform: rotateY(180deg);
+}
