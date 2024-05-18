@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROTECTIUM</title>
+    <link rel="icon" href="/static/ProtectiumLogo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/Home.css" type="text/css" />
+</head>
+
+<body onload="myFunction()">
+    <div class="parent_container">
+        <div class="container" id="loader">
+            <div class="loader_lines"></div>
+
+            <div class="loader">
+                <span class="char1">P</span>
+                <span class="char2">R</span>
+                <span class="char3">O</span>
+                <span class="char4">T</span>
+                <span class="char5">E</span>
+                <span class="char6">C</span>
+                <span class="char7">T</span>
+                <span class="char8">I</span>
+                <span class="char9">U</span>
+                <span class="char10">M</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="cookies" id="cookies">
+        <p class="cookies_text">Protectium uses cookies in order to personalize your experience and to analyse our
+            traffic. Cookies are
+            small data files that are sent from a website that is stored within the user's web browser. By continuing to
+            use our website, you agree to the use of cookies.</p>
+
+        <p class="cookies_more_info">For more information, read our <a href="{{ url_for('underdevelopment') }}">Privacy
+                Policy</a> and <a href="{{ url_for('underdevelopment') }}">Cookie
+                Policy</a></a></a>.</p>
+
+        <button id="accept"><b>ACCEPT COOKIES</b></button>
+
+        <button id="reject"><b>REJECT</b></button>
+    </div>
+
+    <div class="contaier_webpage" id="container_webpage">
+        <nav class="navbar">
+            <div class="navbar_logo">
+                <a href="{{ url_for('home') }}"><img src="/static/ProtectiumLogo.png" alt="Protectium Logo"></a>
+            </div>
+
+            <div class="ham_container">
+                <input class="checkbox" type="checkbox" name="" id="check" />
+
+                <div class="hamburger_lines">
+                    <span class="line line1"></span>
+                    <span class="line line2"></span>
+                    <span class="line line3"></span>
+                </div>
+
+                <ul class="navbar_menu">
+                    <li><a href="{{ url_for('home') }}"><i class="fa fa-fw fa-home"></i><span
+                                class="navbar_menu_text">Home</span></a>
+                    </li>
+                    <li><a href="{{ url_for('login') }}"><i class="fa fa-fw fa-user"></i><span
+                                class="navbar_menu_text">Login</span></a>
+                    </li>
+                    <li><a href="{{ url_for('signup') }}"><i class="fa fa-fw fa-user"></i><span
+                                class="navbar_menu_text">Sign
+                                Up</span></a></li>
+                    <li><a href="{{ url_for('aboutus') }}"><i class="fa fa-fw fa-envelope"></i><span
+                                class="navbar_menu_text">About
+                                Us</span></a></li>
+                </ul>
+            </div>
+
+
+            <ul class="navbar_menu">
+                <li><a href="{{ url_for('home') }}"><i class="fa fa-fw fa-home"></i><span
+                            class="navbar_menu_text">Home</span></a>
+                </li>
+                <li><a href="{{ url_for('login') }}"><i class="fa fa-fw fa-user"></i><span
+                            class="navbar_menu_text">Login</span></a>
+                </li>
+                <li><a href="{{ url_for('signup') }}"><i class="fa fa-fw fa-user"></i><span
+                            class="navbar_menu_text">Sign
+                            Up</span></a></li>
+                <li><a href="{{ url_for('aboutus') }}"><i class="fa fa-fw fa-envelope"></i><span
+                            class="navbar_menu_text">About
+                            Us</span></a></li>
+            </ul>
+        </nav>
+
+        <div class="explore" id="explore">
+            <span class="explore1">What is Protectium ?</span>
+            <span class="explore2">Why Protectium ?</span>
+            <span class="explore3">Applications of Protectium ?</span>
+
+            <div class="explore_button">
+                <button class="explorebtn" onclick="exploreFunc()">Explore More !</button>
+            </div>
+        </div>
+
+        <div class="explore_boxes" id="explore_boxes">
+            <div class="explore_box1">
+                <h2>What is Protectium ?</h2>
+                <span class="short1">Protectium is a web based Multi-Factor Authentication system.</span>
+                <span class="long1">Protectium is a web based Multi-Factor Authentication (MFA) system. It is an
+                    authentication method that requires the user to provide two or more verification factors to gain
+                    access to a resource such as an application, online account, or any other transaction. <br><br> MFA
+                    decreases
+                    the likelihood of a cyber-attack. It is projected towards echancing the user experience and make it
+                    convinient for the users to safely login into their respective accounts.</span>
+            </div>
+
+            <div class="explore_box2">
+                <h2>Why Protectium ?</h2>
+                <span>Protectium is aimed to achieve highest level of security for users.</span>
+            </div>
+
+            <div class="explore_box3">
+                <h2>Applications of Protectium ?</h2>
+                <span>Protectium can be used by any organization that requires an authentication system.</span>
+            </div>
+        </div>
+
+        <div class="explore_close_button">
+            <button class="exploreclsbtn" id="explore_close_button" onclick="exploreClsFunc()">X</button>
+        </div>
+    </div>
+
+
+    <script>
+        var myVar;
+
+        function myFunction() {
+            document.getElementById("container_webpage").style.display = "none";
+            document.getElementById("cookies").style.display = "none";
+            myVar = setTimeout(showPage, 1000);
+        }
+
+        function showPage() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("cookies").style.display = "block";
+
+            const accept = document.getElementById("accept");
+            const reject = document.getElementById("reject");
+
+            accept.onclick = function () {
+                document.getElementById("cookies").style.display = "none";
+                document.getElementById("container_webpage").style.display = "block";
+            }
+
+            reject.onclick = function () {
+                window.location.href = "http://www.google.com";
+            }
+        }
+
+        function exploreFunc() {
+            document.getElementById("explore").style.display = "none";
+            document.getElementById("explore_boxes").style.display = "flex";
+            document.getElementById("explore_close_button").style.display = "block";
+        }
+
+        function exploreClsFunc() {
+            document.getElementById("explore").style.display = "block";
+            document.getElementById("explore_boxes").style.display = "none";
+            document.getElementById("explore_close_button").style.display = "none";
+        }
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROTECTIUM - Welcome</title>
+    <link rel="icon" href="/static/ProtectiumLogo.png" type="image/x-icon">
+    <link rel="icon" href="{{url_for('static', filename='ProtectiumLogo.png')}}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Welcome.css') }}">
+    <link rel="stylesheet" href="/static/Welcome.css">
+</head>
+
+<body onload="myFunction()">
+    <div class="parent_container">
+        <div class="container" id="loader">
+            <div class="loader_lines"></div>
+
+            <div class="loader">
+                <span class="char1">P</span>
+                <span class="char2">R</span>
+                <span class="char3">O</span>
+                <span class="char4">T</span>
+                <span class="char5">E</span>
+                <span class="char6">C</span>
+                <span class="char7">T</span>
+                <span class="char8">I</span>
+                <span class="char9">U</span>
+                <span class="char10">M</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="contaier_webpage" id="container_webpage">
+        <div class="welcome_container">
+            <div class="slideshow">
+                <img src="/static/Welcome1.png" alt="Image 1">
+                <img src="/static/Welcome2.png" alt="Image 2">
+                <img src="/static/Welcome3.png" alt="Image 3">
+                <img src="/static/Welcome4.png" alt="Image 4">
+                <img src="/static/Welcome5.png" alt="Image 5">
+            </div>
+
+        </div>
+        <div class="welcome_screen">
+            <p class="welcome_text">Welcome, {{fname}}.</p>
+        </div>
+
+    </div>
+
+    <script>
+        var myVar;
+
+        function myFunction() {
+            document.getElementById("container_webpage").style.display = "none";
+            myVar = setTimeout(showPage, 1000);
+        }
+
+        function showPage() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("container_webpage").style.display = "block";
+        }
+    </script>
+</body>
+
+</html>

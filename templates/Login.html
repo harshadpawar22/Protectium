@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROTECTIUM - Login</title>
+    <link rel="icon" href="/static/ProtectiumLogo.png" type="image/x-icon">
+    <link rel="icon" href="{{url_for('static', filename='ProtectiumLogo.png')}}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Login.css') }}">
+    <link rel="stylesheet" href="/static/Login.css">
+</head>
+
+<body onload="myFunction()">
+    <div class="parent_container">
+        <div class="container" id="loader">
+            <div class="loader_lines"></div>
+
+            <div class="loader">
+                <span class="char1">P</span>
+                <span class="char2">R</span>
+                <span class="char3">O</span>
+                <span class="char4">T</span>
+                <span class="char5">E</span>
+                <span class="char6">C</span>
+                <span class="char7">T</span>
+                <span class="char8">I</span>
+                <span class="char9">U</span>
+                <span class="char10">M</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="contaier_webpage" id="container_webpage">
+        <nav class="navbar">
+            <div class="navbar_logo">
+                <a href="{{ url_for('home') }}"><img src="/static/ProtectiumLogo.png" alt="Protectium Logo"></a>
+            </div>
+
+            <div class="ham_container">
+                <input class="checkbox" type="checkbox" name="" id="check" />
+
+                <div class="hamburger_lines">
+                    <span class="line line1"></span>
+                    <span class="line line2"></span>
+                    <span class="line line3"></span>
+                </div>
+
+                <ul class="navbar_menu">
+                    <li><a href="{{ url_for('home') }}"><i class="fa fa-fw fa-home"></i><span
+                                class="navbar_menu_text">Home</span></a>
+                    </li>
+                    <li><a href="{{ url_for('login') }}"><i class="fa fa-fw fa-user"></i><span
+                                class="navbar_menu_text">Login</span></a>
+                    </li>
+                    <li><a href="{{ url_for('signup') }}"><i class="fa fa-fw fa-user"></i><span
+                                class="navbar_menu_text">Sign
+                                Up</span></a></li>
+                    <li><a href="{{ url_for('aboutus') }}"><i class="fa fa-fw fa-envelope"></i><span
+                                class="navbar_menu_text">About
+                                Us</span></a></li>
+                </ul>
+            </div>
+
+
+            <ul class="navbar_menu">
+                <li><a href="{{ url_for('home') }}"><i class="fa fa-fw fa-home"></i><span
+                            class="navbar_menu_text">Home</span></a>
+                </li>
+                <li><a href="{{ url_for('login') }}"><i class="fa fa-fw fa-user"></i><span
+                            class="navbar_menu_text">Login</span></a>
+                </li>
+                <li><a href="{{ url_for('signup') }}"><i class="fa fa-fw fa-user"></i><span
+                            class="navbar_menu_text">Sign
+                            Up</span></a></li>
+                <li><a href="{{ url_for('aboutus') }}"><i class="fa fa-fw fa-envelope"></i><span
+                            class="navbar_menu_text">About
+                            Us</span></a></li>
+            </ul>
+        </nav>
+
+        <form id="login_form" action="/login/" method="POST">
+            <div class="login_container_box" id="login_container_box">
+                <h2>Login</h2>
+                <h4>Enter your credentials</h4>
+                <div class="login_form">
+                    <div class="username">
+                        <input type="text" name="username" id="username" class="input_handler" placeholder="Username"
+                            required></input>
+                    </div>
+
+                    <div class="password">
+                        <input type="password" class="input_handler" name="password" placeholder="Password"
+                            id="password" required></input>
+                        <button type="button" class="show_password" onclick="showpassword(this)"></button>
+                    </div>
+
+                    <a href="{{ url_for('underdevelopment') }}" class="forgot_password">Forgot Password ?</a>
+
+                    <p id="error_message" class="error_handler" style="color: red;">{{error}}</p>
+
+
+                    <button type="button" class="login_btn" id="login_btn" value="Login"
+                        onclick="validateForm()">NEXT</button>
+                </div>
+
+            </div>
+
+            <div class="pattern_container_box" id="pattern_container_box">
+                <h2>Login</h2>
+                <h4>Enter your credentials</h4>
+                <div class="pattern_box">
+                    <div class="shapes" id="shapes">
+                        <button type="button" id="red" value="R" onclick="selectPButton(this)">
+                            <div class="red"></div>
+                        </button>
+                        <button type="button" id="green" value="G" onclick="selectPButton(this)">
+                            <div class="green"></div>
+                        </button>
+                        <button type="button" id="blue" value="B" onclick="selectPButton(this)">
+                            <div class="blue"></div>
+                        </button>
+                    </div>
+                    <button type="button" id="resetP" class="reset">Reset</button>
+                    <input type="text" id="pattern_password" name="pattern_password" class="shapes_text"></input>
+                </div>
+                <p id="error_message_pattern" class="error_handler_pattern" style="color: red;">{{error}}</p>
+                <button type="button" class="login_btn_next" onclick="validatePattern()" id="login_btn">NEXT</button>
+            </div>
+
+            <div class="picture_container_box" id="picture_container_box">
+                <h2>Login</h2>
+                <h4>Upload your credentials</h4>
+                <input type="file" id="fileInput" onchange="displayImage()" accept="image/*">
+                <input type="text" id="picture_password" name="picture_password" class="pic_text"></input>
+                <button type="button" id="reset_pic" class="resett"><i style="font-size:24px"
+                        class="fa">&#xf021;</i></button>
+                <div class="container1">
+                    <div class="buttons" id="grid">
+                        <button type="button" class="b1 gbutton" id="btn1" value="1"
+                            onclick="selectButton(this)"></button>
+                        <button type="button" class="b2 gbutton" id="btn2" value="2"
+                            onclick="selectButton(this)"></button>
+                        <button type="button" class="b3 gbutton" id="btn3" value="3"
+                            onclick="selectButton(this)"></button>
+                        <button type="button" class="b4 gbutton" id="btn4" value="4"
+                            onclick="selectButton(this)"></button>
+                        <button type="button" class="b5 gbutton" id="btn5" value="5"
+                            onclick="selectButton(this)"></button>
+                        <button type="button" class="b6 gbutton" id="btn6" value="6"
+                            onclick="selectButton(this)"></button>
+                        <button type="button" class="b7 gbutton" id="btn7" value="7"
+                            onclick="selectButton(this)"></button>
+                        <button type="button" class="b8 gbutton" id="btn8" value="8"
+                            onclick="selectButton(this)"></button>
+                        <button type="button" class="b9 gbutton" id="btn9" value="9"
+                            onclick="selectButton(this)"></button>
+                    </div>
+                    <div id="imagePreview"></div>
+                </div>
+                <button type="submit" class="login_btn_submit" onclick="validatePicture()">LOGIN</button>
+            </div>
+        </form>
+    </div>
+
+
+    <script>
+        var myVar;
+
+        function myFunction() {
+            document.getElementById("container_webpage").style.display = "none";
+            myVar = setTimeout(showPage, 1000);
+        }
+
+        function showPage() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("container_webpage").style.display = "block";
+        }
+
+        const showpassword = button => {
+            button.classList.toggle("showing");
+
+            const input = document.getElementById("password");
+
+            input.type =
+                input.type == "password" ? "text" : "password";
+        }
+
+        // ------------------------- 1st form -------------------------- //
+
+        // Validate the form entered by the user
+        const fname = document.getElementById("fname");
+        const username = document.getElementById("username");
+        const password = document.getElementById("password");
+        const errorMessage = document.getElementById("error_message");
+
+        function validateForm() {
+            if (username.value == '') {
+                errorMessage.innerHTML = "Username cannot be blank";
+                return false;
+            } else if (password.value == '') {
+                errorMessage.innerHTML = "Password cannot be blank";
+                return false;
+            } else {
+                errorMessage.innerHTML = "";
+                document.getElementById("login_container_box").style.display = "none";
+                document.getElementById("pattern_container_box").style.display = "block";
+            }
+        }
+
+
+        // ------------------------- 2nd form -------------------------- //
+
+        const errorMessagePattern = document.getElementById("error_message_pattern");
+
+        const red = document.getElementById("red");
+        const blue = document.getElementById("blue");
+        const green = document.getElementById("green");
+        const pattern_password = document.getElementById("pattern_password");
+        const clickCounts = { red: 0, green: 0, blue: 0 };
+        const resetButton = document.getElementById('resetP');
+        const buttons = document.getElementById("shapes").querySelectorAll('button');
+
+        function selectPButton(button) {
+            pattern_password.value += button.value;
+            const buttonId = button.id;
+            clickCounts[buttonId]++;
+            if (clickCounts[buttonId] >= 2) {
+                button.disabled = true;
+                errorMessagePattern.innerHTML = "Only 2 clicks per color";
+            }
+        }
+
+        resetButton.addEventListener('click', () => {
+            pattern_password.value = ''
+            errorMessagePattern.innerHTML = '';
+            buttons.forEach(button => {
+                button.disabled = false;
+            });
+            Object.keys(clickCounts).forEach(key => {
+                clickCounts[key] = 0;
+            });
+        });
+
+        function validatePattern() {
+            if (pattern_password.value == '') {
+                errorMessagePattern.innerHTML = "Please enter a pattern";
+                return false;
+            }
+            else if (pattern_password.value.length < 3) {
+                errorMessagePattern.innerHTML = "Pattern should be of alteast 3 characters";
+                return false;
+            }
+            else {
+                document.getElementById("pattern_container_box").style.display = "none";
+                document.getElementById("picture_container_box").style.display = "block";
+            }
+        }
+
+
+        // ------------------------- 3rd form -------------------------- //
+
+        const fileInput = document.getElementById("fileInput");
+        const imagePreview = document.getElementById("imagePreview");
+        const picture_password = document.getElementById("picture_password");
+        const resetButtonPicture = document.getElementById("reset_pic");
+        const buttonsPicture = document.getElementById("grid").querySelectorAll('button');
+        const clickCountsPicture = { btn1: 0, btn2: 0, btn3: 0, btn4: 0, btn5: 0, btn6: 0, btn7: 0, btn8: 0, btn9: 0 };
+
+        function displayImage() {
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                const img = document.createElement('img');
+
+                img.onload = function () {
+
+                    // Resize the image
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+                    canvas.width = 519;
+                    canvas.height = 280;
+                    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                    img.src = canvas.toDataURL();
+
+                    // Display the resized image
+                    imagePreview.appendChild(img);
+
+                    // Set the displayedImage variable
+                    displayedImage = img;
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function selectButton(button) {
+            if (fileInput.files.length <= 0) {
+                button.disabled = true;
+                alert("Please choose an image first")
+                picture_password.value = ''
+                buttonsPicture.forEach(button => {
+                    button.disabled = false;
+                });
+                Object.keys(clickCountsPicture).forEach(key => {
+                    clickCountsPicture[key] = 0;
+                });
+            } else {
+                picture_password.value += button.value;
+                const buttonId = button.id;
+                clickCountsPicture[buttonId]++;
+                if (clickCountsPicture[buttonId] == 1) {
+                    button.disabled = true;
+                }
+            }
+        }
+
+        resetButtonPicture.addEventListener('click', () => {
+            picture_password.value = ''
+            buttonsPicture.forEach(button => {
+                button.disabled = false;
+            });
+            Object.keys(clickCountsPicture).forEach(key => {
+                clickCountsPicture[key] = 0;
+            });
+        });
+
+        function validatePicture() {
+            if (picture_password.value == '') {
+                alert("Please Enter A Password")
+            }
+        }
+
+
+        // --------------- Main Submit Function -------------------- //
+
+        // Submit the form
+        const form = document.getElementById("login_form");
+        form.addEventListener("submit", event => {
+            event.preventDefault();
+            form.submit();
+        });
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROTECTIUM - About Us</title>
+    <link rel="icon" href="/static/ProtectiumLogo.png" type="image/x-icon">
+    <link rel="icon" href="{{url_for('static', filename='ProtectiumLogo.png')}}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='AboutUs.css') }}">
+    <link rel="stylesheet" href="/static/AboutUs.css" type="text/css" />
+</head>
+
+<body onload="myFunction()">
+    <div class="parent_container">
+        <div class="container" id="loader">
+            <div class="loader_lines"></div>
+
+            <div class="loader">
+                <span class="char1">P</span>
+                <span class="char2">R</span>
+                <span class="char3">O</span>
+                <span class="char4">T</span>
+                <span class="char5">E</span>
+                <span class="char6">C</span>
+                <span class="char7">T</span>
+                <span class="char8">I</span>
+                <span class="char9">U</span>
+                <span class="char10">M</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="contaier_webpage" id="container_webpage">
+        <nav class="navbar">
+            <div class="navbar_logo">
+                <a href="{{ url_for('home') }}"><img src="/static/ProtectiumLogo.png" alt="Protectium Logo"></a>
+            </div>
+        
+            <div class="ham_container">
+                <input class="checkbox" type="checkbox" name="" id="check" />
+
+                <div class="hamburger_lines">
+                    <span class="line line1"></span>
+                    <span class="line line2"></span>
+                    <span class="line line3"></span>
+                </div>
+
+                <ul class="navbar_menu">
+                    <li><a href="{{ url_for('home') }}"><i class="fa fa-fw fa-home"></i><span class="navbar_menu_text">Home</span></a>
+                    </li>
+                    <li><a href="{{ url_for('login') }}"><i class="fa fa-fw fa-user"></i><span class="navbar_menu_text">Login</span></a>
+                    </li>
+                    <li><a href="{{ url_for('signup') }}"><i class="fa fa-fw fa-user"></i><span class="navbar_menu_text">Sign
+                                Up</span></a></li>
+                    <li><a href="{{ url_for('aboutus') }}"><i class="fa fa-fw fa-envelope"></i><span class="navbar_menu_text">About
+                                Us</span></a></li>
+                </ul>
+                </div>
+                
+                
+                <ul class="navbar_menu">
+                    <li><a href="{{ url_for('home') }}"><i class="fa fa-fw fa-home"></i><span class="navbar_menu_text">Home</span></a>
+                    </li>
+                    <li><a href="{{ url_for('login') }}"><i class="fa fa-fw fa-user"></i><span class="navbar_menu_text">Login</span></a>
+                    </li>
+                    <li><a href="{{ url_for('signup') }}"><i class="fa fa-fw fa-user"></i><span class="navbar_menu_text">Sign
+                                Up</span></a></li>
+                    <li><a href="{{ url_for('aboutus') }}"><i class="fa fa-fw fa-envelope"></i><span class="navbar_menu_text">About
+                                Us</span></a></li>
+                </ul>
+        </nav>
+
+        <div class="about_body">
+            <div class="about_boxes">
+
+                <div class="about_box1">
+                    <div class="about_box_front">
+                        <h2> <em>Sayyam Jain</em> </h2>
+                    </div>
+                    <div class="about_box_back">
+                        <p>Class : BE CMPN 2 <br>
+                            Roll No.: 07 <br>
+                            Email : sayyamjain-cmpn@atharvacoe.ac.in</p>
+                    </div>
+                </div>
+
+                <div class="about_box2">
+                    <div class="about_box_front">
+                        <h2> <em>Sumeet Pandey</em> </h2>
+                    </div>
+                    <div class="about_box_back">
+                        <p>Class : BE CMPN 2 <br>
+                            Roll No.: 14 <br>
+                            Email : sumeetpandey-cmpn@atharvacoe.ac.in</p>
+                    </div>
+                </div>
+
+                <div class="about_box3">
+                    <div class="about_box_front">
+                        <h2> <em>Mayank Pandit</em> </h2>
+                    </div>
+                    <div class="about_box_back">
+                        <p>Class : BE CMPN 2 <br>
+                            Roll No.: 15 <br>
+                            Email : mayankpandit-cmpn@atharvacoe.ac.in</p>
+                    </div>
+                </div>
+
+                <div class="about_box4">
+                    <div class="about_box_front">
+                        <h2> <em>Harshad Pawar</em> </h2>
+                    </div>
+
+                    <div class="about_box_back">
+                        <p>Class : BE CMPN 2 <br>
+                            Roll No.: 29 <br>
+                            Email : harshadpawar-cmpn@atharvacoe.ac.in</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        var myVar;
+
+        function myFunction() {
+            document.getElementById("container_webpage").style.display = "none";
+            myVar = setTimeout(showPage, 1000);
+        }
+
+        function showPage() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("container_webpage").style.display = "block";
+        }
+    </script>
+
+
+</body>
+
+</html>

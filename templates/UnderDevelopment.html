@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROTECTIUM - Under Development</title>
+    <link rel="icon" href="/static/ProtectiumLogo.png" type="image/x-icon">
+    <link rel="icon" href="{{url_for('static', filename='ProtectiumLogo.png')}}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='UnderDevelopment.css') }}">
+    <link rel="stylesheet" href="/static/UnderDevelopment.css" type="text/css" />
+</head>
+
+<body onload="myFunction()">
+    <div class="parent_container">
+        <div class="container" id="loader">
+            <div class="loader_lines"></div>
+
+            <div class="loader">
+                <span class="char1">P</span>
+                <span class="char2">R</span>
+                <span class="char3">O</span>
+                <span class="char4">T</span>
+                <span class="char5">E</span>
+                <span class="char6">C</span>
+                <span class="char7">T</span>
+                <span class="char8">I</span>
+                <span class="char9">U</span>
+                <span class="char10">M</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="contaier_webpage" id="container_webpage">
+        <div class="under_delvelopment_container">
+            <img src="/static/BackgroundImage.svg" alt="Main Background Image" class="mainbg">
+            <img src="/static//smallbg.png" alt="Small Background" class="smallbg">
+            <img src="/static/painting.png" alt="Painting Image" class="painting">
+            <img src="/static/shoulder.png" alt="Shoulder" class="shoulder">
+            <img src="/static/hand.png" alt="Hand Image" class="hand">
+            <img src="/static/wall.webp" alt="Wall Image" class="wall">
+        </div>
+
+        <div class="under_development_msg">
+            <p class="big_msg">THIS PAGE IS STILL <br> UNDER DEVELOPMENT</p>
+            <p class="small_msg">VISIT BACK SOON !</p>
+
+            <img src="/static/oops.png" alt="Oops Image" class="oops">
+
+            <button type="button" class="oops_btn">
+                <p>OOPS !</p>
+            </button>
+
+            <div class="under_development_loader">
+                <div class="back_to_home">
+                    <button type="button" class="back_to_home_btn"><a href="{{ url_for('home') }}">BACK <br> TO <br> HOME
+                        </a></button>
+                </div>
+
+                <div class="container">
+                    <div class="loader_lines"></div>
+
+                    <div class="loader">
+                        <span class="char1">P</span>
+                        <span class="char2">R</span>
+                        <span class="char3">O</span>
+                        <span class="char4">T</span>
+                        <span class="char5">E</span>
+                        <span class="char6">C</span>
+                        <span class="char7">T</span>
+                        <span class="char8">I</span>
+                        <span class="char9">U</span>
+                        <span class="char10">M</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <script>
+            var myVar;
+
+            function myFunction() {
+                document.body.style.backgroundImage = "url(/static/BackgroundImage.svg)";
+                document.getElementById("container_webpage").style.display = "none";
+                myVar = setTimeout(showPage, 1000);
+            }
+
+            function showPage() {
+                document.getElementById("loader").style.display = "none";
+                document.body.style = "background-color: white";
+                document.getElementById("container_webpage").style.display = "block";
+            }
+        </script>
+    </div>
+</body>
+
+</html>
